@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script>(function (w, d, t, r, u, o, s, f) {w[r] = w[r] || function () {(w._rq = w._rq || []).push(Array.prototype.slice.call(arguments))};s = d.createElement(t),f = d.getElementsByTagName(t)[0];s.async = 1;s.src = u;s.id = 'rtracker';s.setAttribute('data-api-key', o);f.parentNode.insertBefore(s, f)})(window, document, 'script', '_gb', 'https://track.embluemail.com/tracker/tracker.js', 'aaddb6ec4475e14185b4584a217d494da5aa');</script>
+    <form>
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" /></br>
+
+        <label for="lastname">lastname</label>
+        <input type="text" id="lastname" name="lastname"/></br>
+        <input type="text" id="email" name="email"/></br>
+
+        <input id="submit" type="submit" value="guardar">
+    </form> 
+    <input id="emblue" type="button" value="emblue">
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+ $("#emblue").on("click",function(e){
+    var id = $('#id').text();
+    var name = $('#name').text();
+    var lastname = $('#lastname').text();
+    var email = $('#email').text();
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://track.embluemail.com/contacts/event",
+      "method": "POST",
+      "headers": {
+        "authorization": "ZGRiNmVjNDQ3NWUxNDE4NWI0NTg0YTIxN2Q0OTRkYTU=",
+        "content-type": "application/json",
+      },
+      "processData": false,
+      "data": "{\n    \"email\": \"renny001@gmail.com\",\n    \"eventName\": \"prueba\",\n    \"attributes\": {\n        \"name\": \"renny2\",\n        \"lastname\": \"petit2\"\n    }\n}"
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+});
+</script>
+</html>
